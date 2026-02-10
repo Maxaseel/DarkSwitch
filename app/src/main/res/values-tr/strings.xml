@@ -1,0 +1,69 @@
+<resources>
+    <string name="app_name">DarkSwitch</string>
+
+    <string name="ds_log_user_service_connected_binder_null">UserService bağlandı ancak binder null</string>
+    <string name="ds_log_user_service_connected">UserService bağlandı</string>
+    <string name="ds_log_user_service_disconnected">UserService bağlantısı kesildi</string>
+    <string name="ds_log_shizuku_binder_not_alive">Shizuku binder aktif değil</string>
+    <string name="ds_log_bind_user_service_failed">bindUserService başarısız: %1$s: %2$s</string>
+    <string name="ds_log_user_service_call_failed">UserService çağrısı başarısız: %1$s</string>
+
+    <string name="ds_log_service_started">Servis başlatıldı</string>
+    <string name="ds_log_foreground_waiting_first_package">Ön plan bekleniyor… (ilk paket henüz yakalanmadı)</string>
+    <string name="ds_log_shizuku_not_ready">Shizuku hazır değil (binder/izin).</string>
+    <string name="ds_log_restart_hint">İpucu: Etki görmüyorsan uygulamayı tamamen kapatıp tekrar aç.</string>
+
+    <string name="ds_state_on">AÇIK</string>
+    <string name="ds_state_off">KAPALI</string>
+    <string name="ds_result_ok">ok</string>
+    <string name="ds_result_fail">hata</string>
+
+    <string name="ds_log_apply_result">Mod=%1$s FG=%2$s -> %3$s (%4$s)</string>
+    <string name="ds_log_service_stopped">Servis durduruldu</string>
+
+    <string name="notification_channel_name">DarkSwitch</string>
+    <string name="notification_title">DarkSwitch</string>
+    <string name="notification_text_force_dark_running">Seçili uygulamalarda force-dark uygulanıyor</string>
+
+    <string name="a11y_service_label">DarkSwitch</string>
+    <string name="a11y_service_desc">Ön plandaki uygulamayı algılamak için kullanılır. DarkSwitch yalnızca seçtiğiniz uygulamalarda force-dark uygular.</string>
+
+    <string name="home_subtitle">Dark Mode desteği olmayan uygulamalar için sistem seviyesinde koyu tema uygular.</string>
+
+    <string name="permissions_title">İzinler</string>
+    <string name="permission_usage_access_title">Kullanım Erişimi</string>
+    <string name="permission_notifications_title">Bildirimler</string>
+    <string name="permission_accessibility_title">Erişilebilirlik</string>
+    <string name="permission_shizuku_title">Shizuku</string>
+    <string name="permission_status_not_granted">Verilmedi</string>
+
+    <string name="action_grant">Ver</string>
+    <string name="action_request">İstek</string>
+    <string name="action_ok">Tamam</string>
+
+    <string name="cd_shizuku_help">Shizuku yardım</string>
+    <string name="shizuku_status_not_running">Çalışmıyor / yüklü değil</string>
+    <string name="shizuku_status_permission_needed">İzin gerekli</string>
+
+    <string name="shizuku_setup_title">Shizuku kurulumu</string>
+    <string name="shizuku_setup_intro">DarkSwitch, sistem ayarlarını değiştirmek için Shizuku üzerinden yetki ister. Root gerekmez; Shizuku, ADB yetkisini cihaz üzerinde servis olarak sağlar.</string>
+    <string name="shizuku_setup_beginners_title">Yeni başlayanlar için:</string>
+    <string name="shizuku_setup_beginners_steps">1) Shizuku’yu yükle:\n   • Google Play Store: \"Shizuku\" (RikkaApps)\n   • Alternatif: GitHub Releases üzerinden APK indirip kur.\n2) Shizuku’yu aç ve “Start” adımlarını takip et. Android 11+ için genelde Wireless Debugging gerekir.\n3) Shizuku çalışır duruma gelince DarkSwitch’e geri dön ve “İstek” ile izin ver.\n4) İzin verildikten sonra bu satır kaybolur ve Global Enabled aktifleşir.</string>
+    <string name="shizuku_setup_advanced_title">Deneyimli kullanıcılar için (kısa):</string>
+    <string name="shizuku_setup_advanced_steps">• Wireless debugging: Geliştirici Seçenekleri &gt; Kablosuz hata ayıklama (eşleştir + başlat)\n• USB debugging: Cihazı PC’ye bağla, Shizuku’da “Start via USB”\n• Emülatör: adb ile başlat (Shizuku’nun verdiği komutu terminalde çalıştır).</string>
+    <string name="shizuku_setup_notes">Notlar:\n• Shizuku durursa (yeniden başlatma / reboot), tekrar Start gerekebilir.\n• DarkSwitch yalnızca izin verildiğinde çalışır; verilerinize erişmez.</string>
+
+    <string name="global_enabled_title">Genel Etkin</string>
+    <string name="global_enabled_desc">Aktifse seçtiğin uygulamalarda force-dark denenir.</string>
+
+    <string name="compat_mode_title">Uyumluluk Modu</string>
+    <string name="compat_mode_desc">Bazı cihazlarda yöntemler farklı çalışır. Sorunlu uygulamalar için modu değiştirip dene.</string>
+    <string name="cd_change_compat_mode">Uyumluluk modunu değiştir</string>
+
+    <string name="logs_title">Kayıtlar</string>
+    <string name="cd_hide_logs">Kayıtları gizle</string>
+    <string name="cd_show_logs">Kayıtları göster</string>
+
+    <string name="footer_open_source">DarkSwitch açık kaynaklı, deneysel bir projedir.</string>
+    <string name="footer_developed_by">AlpWare Studio tarafından geliştirildi • Apache License 2.0</string>
+</resources>
