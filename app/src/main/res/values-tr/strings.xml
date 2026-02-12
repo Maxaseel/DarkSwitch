@@ -66,4 +66,6 @@
 
     <string name="footer_open_source">DarkSwitch açık kaynaklı, deneysel bir projedir.</string>
     <string name="footer_developed_by">AlpWare Studio tarafından geliştirildi • Apache License 2.0</string>
+
+    <string name="search_hint">Uygulama ara</string>
 </resources>

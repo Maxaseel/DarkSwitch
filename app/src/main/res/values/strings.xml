@@ -66,4 +66,6 @@
 
     <string name="footer_open_source">DarkSwitch is an open-source, experimental project.</string>
     <string name="footer_developed_by">Developed by AlpWare Studio • Apache License 2.0</string>
+
+    <string name="search_hint">Search apps</string>
 </resources>

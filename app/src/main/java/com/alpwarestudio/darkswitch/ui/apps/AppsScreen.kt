@@ -1,6 +1,7 @@
 package com.alpwarestudio.darkswitch.ui.apps
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement.Absolute.SpaceBetween
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -11,10 +12,17 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Search
+import com.alpwarestudio.darkswitch.R
 import com.alpwarestudio.darkswitch.core.model.AppInfo
 
 /**
@@ -38,9 +46,21 @@ fun AppsScreen(
         OutlinedTextField(
             value = state.query,
             onValueChange = onQueryChange,
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 12.dp),
             singleLine = true,
-            enabled = enabled
+            enabled = enabled,
+            placeholder = {
+                Text(text = stringResource(id = R.string.search_hint))
+            },
+            leadingIcon = {
+                Icon(
+                    imageVector = Icons.Default.Search,
+                    contentDescription = null
+                )
+            },
+            shape = MaterialTheme.shapes.large,
         )
 
         // Apply current query and state to obtain the visible app list.
@@ -92,7 +112,7 @@ private fun AppRow(
             .clickable(enabled = enabled) { onToggle() }
             .padding(horizontal = 12.dp, vertical = 10.dp),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = androidx.compose.foundation.layout.Arrangement.SpaceBetween
+        horizontalArrangement = SpaceBetween
     ) {
         Column(modifier = Modifier.weight(1f)) {
             Text(app.label, style = MaterialTheme.typography.titleMedium)

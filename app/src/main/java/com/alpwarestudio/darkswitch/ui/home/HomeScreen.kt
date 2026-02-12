@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExpandLess
@@ -91,7 +92,8 @@ fun HomeScreen(
 
                 Text(
                     stringResource(R.string.app_name),
-                    style = MaterialTheme.typography.headlineSmall
+                    style = MaterialTheme.typography.headlineSmall,
+                    color = MaterialTheme.colorScheme.onSurface
                 )
                 Text(
                     stringResource(R.string.home_subtitle),
@@ -135,22 +137,6 @@ fun HomeScreen(
                             }
                         }
 
-                        if (needsNotif) {
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                horizontalArrangement = Arrangement.SpaceBetween,
-                                verticalAlignment = Alignment.CenterVertically
-                            ) {
-                                Column {
-                                    Text(stringResource(R.string.permission_notifications_title))
-                                    Text(stringResource(R.string.permission_status_not_granted), style = MaterialTheme.typography.bodyMedium)
-                                }
-                                Button(onClick = onRequestNotificationPermission) {
-                                    Text(stringResource(R.string.action_grant))
-                                }
-                            }
-                        }
-
                         if (needsA11y) {
                             Row(
                                 modifier = Modifier.fillMaxWidth(),
@@ -162,6 +148,22 @@ fun HomeScreen(
                                     Text(stringResource(R.string.permission_status_not_granted), style = MaterialTheme.typography.bodyMedium)
                                 }
                                 Button(onClick = onOpenAccessibilitySettings) {
+                                    Text(stringResource(R.string.action_grant))
+                                }
+                            }
+                        }
+
+                        if (needsNotif) {
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Column {
+                                    Text(stringResource(R.string.permission_notifications_title))
+                                    Text(stringResource(R.string.permission_status_not_granted), style = MaterialTheme.typography.bodyMedium)
+                                }
+                                Button(onClick = onRequestNotificationPermission) {
                                     Text(stringResource(R.string.action_grant))
                                 }
                             }
@@ -254,6 +256,7 @@ fun HomeScreen(
                                 style = MaterialTheme.typography.bodyMedium
                             )
                         }
+                        Spacer(modifier = Modifier.width(12.dp))
                         Switch(
                             checked = state.globalEnabled,
                             onCheckedChange = onToggleGlobal,
