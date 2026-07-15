@@ -6,15 +6,15 @@ plugins {
 android {
     namespace = "com.alpwarestudio.darkswitch"
     compileSdk {
-        version = release(36)
+        version = release(37)
     }
 
     defaultConfig {
         applicationId = "com.alpwarestudio.darkswitch"
         minSdk = 29
-        targetSdk = 36
-        versionCode = 1
-        versionName = "1.0.0"
+        targetSdk = 37
+        versionCode = 2
+        versionName = "1.2.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

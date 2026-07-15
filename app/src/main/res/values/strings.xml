@@ -15,7 +15,7 @@
 
     <string name="ds_state_on">ON</string>
     <string name="ds_state_off">OFF</string>
-    <string name="ds_result_ok">ok</string>
+    <string name="ds_result_ok">OK</string>
     <string name="ds_result_fail">fail</string>
 
     <string name="ds_log_apply_result">Mode=%1$s FG=%2$s -> %3$s (%4$s)</string>
@@ -68,4 +68,15 @@
     <string name="footer_developed_by">Developed by AlpWare Studio • Apache License 2.0</string>
 
     <string name="search_hint">Search apps</string>
+
+    <string name="setup_title">Setup &amp; permissions</string>
+    <string name="privacy_disclosure">DarkSwitch only observes the foreground package name. It does not read screen text, touches, or personal content.</string>
+    <string name="restore_all">Restore all changes</string>
+    <string name="apps_title">Selected applications</string>
+    <string name="diagnostics_title">Diagnostics</string>
+    <string name="status_ready">Ready</string>
+    <string name="compat_working">Compatibility: Working</string>
+    <string name="compat_partial">Compatibility: Partial</string>
+    <string name="compat_not_working">Compatibility: Not working</string>
+    <string name="compat_unknown">Compatibility: Not tested</string>
 </resources>

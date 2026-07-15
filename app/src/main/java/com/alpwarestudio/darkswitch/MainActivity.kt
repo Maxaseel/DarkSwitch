@@ -103,6 +103,7 @@ class MainActivity : ComponentActivity() {
                     },
                     compatMode = settings.compatMode,
                     onSelectCompatMode = { homeVm.setCompatMode(it) },
+                    onRestoreAll = { homeVm.restoreAll() },
                     appsState = appsState,
                     onAppsQueryChange = { appsVm.setQuery(it) },
                     onToggleApp = { appsVm.togglePackage(it) },

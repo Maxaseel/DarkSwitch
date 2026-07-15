@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "apps": [
+    {
+      "packageName": "com.example.legacy",
+      "status": "PARTIAL",
+      "recommendedMode": "HWUI_PROP",
+      "notes": "Example entry. Replace or extend through pull requests after device testing."
+    }
+  ]
+}

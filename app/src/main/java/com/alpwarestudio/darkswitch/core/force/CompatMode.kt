@@ -1,19 +1,13 @@
 package com.alpwarestudio.darkswitch.core.force
 
-/**
- * Represents alternative strategies to force or hint dark mode on devices
- * where standard APIs are insufficient or OEM-dependent.
- */
+/** Supported best-effort force-dark mechanisms. AUTO tries safe candidates in order. */
+enum class CompatMode(val title: String, val requiresRestartHint: Boolean) {
+    AUTO("Automatic (recommended)", true),
+    HWUI_PROP("Standard (HWUI)", true),
+    SETTINGS_GLOBAL("Alternative (global setting)", true),
+    CMD_UIMODE("Experimental (UI mode)", true);
 
-enum class CompatMode(
-    // `title` is a user-facing label; `requiresRestartHint` indicates whether a reboot may be needed.
-    val title: String,
-    val requiresRestartHint: Boolean
-) {
-    // Forces dark rendering via HWUI debug system property (may be restricted on newer Android versions).
-    HWUI_PROP("HWUI Prop (debug.hwui.force_dark)", true),
-    // Toggles the global force-dark setting used by some system components and OEM skins.
-    SETTINGS_GLOBAL("Settings Global (force_dark_mode_on)", true),
-    // Fallback approach using the `cmd uimode night` shell command.
-    CMD_UIMODE("cmd uimode night (fallback)", true);
+    companion object {
+        val concreteModes = listOf(HWUI_PROP, SETTINGS_GLOBAL, CMD_UIMODE)
+    }
 }

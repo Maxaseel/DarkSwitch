@@ -1,187 +1,38 @@
-# 🌙 DarkSwitch
+# DarkSwitch
 
-<p align="center">
-  <img src="assets/icon.png" alt="DarkSwitch App Icon" width="160" />
-</p>
+**Force dark mode per app on Android — without root.**
 
-**DarkSwitch** is a free and open-source Android application that attempts to apply a **system-level dark theme** to apps that **do not natively support Dark Mode**.
+DarkSwitch is a small, open-source Android utility that uses Shizuku and foreground-app detection to attempt system-level force-dark behavior for selected applications. Android and OEM implementations differ, so results can be working, partial, or unsupported.
 
-This project is **not intended for the Play Store**.  
-It is designed for **technical users, power users, and developers**.
+## Highlights
 
----
+- Android 10+ and Shizuku; no root required
+- Select applications and let DarkSwitch toggle force-dark as they enter the foreground
+- Automatic strategy fallback with a remembered strategy per package
+- Offline compatibility database bundled as JSON
+- One-tap restore for all known switches and saved selections
+- In-memory diagnostics only; no network, analytics, account, ads, or cloud
 
-## ✨ Features
+## Setup
 
-- 🌑 Attempts to force Dark Mode on apps without native support
-- 📱 **Per-app enable / disable** (not global only)
-- ⚙️ Multiple **compatibility modes**
-- 🔍 Real-time **foreground app detection**
-- 🔐 **No root required**
-- 🧩 Uses **Shizuku** for privileged system access
-- 🧪 Built-in **logs** for debugging and testing
-- 🧼 Minimal **Material 3 / Material You** UI
+1. Install and start Shizuku.
+2. Grant DarkSwitch Shizuku permission.
+3. Enable DarkSwitch's accessibility service. It only observes foreground package names.
+4. Grant notification permission where required.
+5. Enable the engine and select applications.
 
----
+## Compatibility database
 
-## 📸 Screenshots
+Confirmed results live at `app/src/main/assets/compatibility_database.json`. Contributions should include the package, tested Android/device information, status, recommended mode, and concise notes. See `CONTRIBUTING.md` and the compatibility issue template.
 
-<p align="center">
-  <img src="assets/1.png" alt="Home screen" width="240" />
-  <img src="assets/2.png" alt="Apps selection" width="240" />
-  <img src="assets/3.png" alt="Logs and compat mode" width="240" />
-</p>
+## Important limitations
 
----
+Force Dark is not a universal theming engine. Apps using fixed colors, custom rendering, images, WebViews, or explicit force-dark opt-outs may remain light or show visual defects. A successful shell command means the system accepted the operation; it does not prove the target UI rendered correctly.
 
-## ⚠️ Important Notes (Please Read)
+## Build
 
-> DarkSwitch is **NOT** equivalent to browser extensions like **Dark Reader**.
+Open the project with a current Android Studio installation and Android SDK 36. The included Gradle wrapper requires network access on first use to download Gradle and dependencies.
 
-DarkSwitch relies on Android’s **built-in force-dark mechanisms** (HWUI / system settings).  
-Because of this:
+## License
 
-- ❌ It may **not work on all apps**
-- ❌ Some apps explicitly **block force-dark**
-- ❌ Many **system apps** (Settings, Launchers, etc.) ignore force-dark
-- ❌ Behavior may vary across devices and Android versions
-- ⚠️ Android emulators often **do not support force-dark properly**
-
-**For reliable results, test on a real Android device.**
-
----
-
-## 🔐 Why These Permissions Are Required
-
-DarkSwitch requires the following permissions to function correctly:
-
-### 1️⃣ Accessibility Service
-- **Purpose:**  
-  Detect which app is currently in the foreground.
-- **What it does NOT do:**
-    - No touch interaction
-    - No text reading
-    - No data collection
-
-> Only `event.packageName` is used.
-
----
-
-### 2️⃣ Shizuku
-- **Purpose:**  
-  Apply system-level settings without root access.
-- **How it works:**  
-  Shizuku provides ADB-level permissions via a local service.
-- **Root is NOT required.**
-
----
-
-### 3️⃣ Usage Access (optional / fallback)
-- Used only as a secondary mechanism on some devices.
-- Accessibility is the primary method.
-
----
-
-### 4️⃣ Notification Permission
-- Required for the **foreground service notification**.
-- Used only to indicate that DarkSwitch is running.
-
----
-
-## 🚀 Installation
-
-### 1) Install via APK
-- Download the APK from **GitHub Releases**
-- Allow installation from unknown sources
-- Install the APK
-
-### 2) Set up Shizuku
-- Install **Shizuku** from Google Play (RikkaApps)
-- Start Shizuku:
-    - Android 11+: usually requires **Wireless Debugging**
-- In DarkSwitch, tap **Request** to grant permission
-
-### 3) Enable Accessibility
-- System Settings → Accessibility
-- Enable **DarkSwitch Foreground Tracker**
-
----
-
-## 🧪 How to Use
-
-1. Grant all required permissions
-2. Enable **Global Enabled**
-3. Toggle a target app **ON**
-4. Open the target app
-5. If needed, switch **Compat Mode** and retry
-
----
-
-## 🛠️ What Is Compat Mode?
-
-Different devices handle force-dark differently.
-
-DarkSwitch provides multiple methods:
-- HWUI system property
-- Global system settings
-- UI mode command execution
-
-If an app does not respond, try switching modes.
-
----
-
-## 🧠 For Developers
-
-- Jetpack Compose
-- DataStore
-- StateFlow / Flow
-- Foreground Service
-- AccessibilityService
-- Shizuku API
-
-The project is designed to be **modular, readable, and hackable**.
-
----
-
-## 🔍 Logs
-
-The built-in log viewer shows:
-- Detected foreground app
-- Applied compat mode
-- Success / failure results
-
-Useful for debugging and experimentation.
-
----
-
-## 🔓 License
-
-This project is licensed under the **Apache License 2.0**.
-
-- Commercial use allowed
-- Forking and modification allowed
-- No warranty provided
-
-See [`LICENSE`](LICENSE) for details.
-
----
-
-## ⚠️ Disclaimer
-
-This project is **experimental**.
-
-- You are responsible for any effects on your device or apps.
-- This is **not an officially supported Android feature**.
-- Behavior may break after system updates or OEM changes.
-
----
-
-## ❤️ Contributing
-
-Issues, pull requests, and discussions are welcome.  
-However, this project is **not intended for Play Store distribution**.
-
----
-
-**AlpWare Studio**  
-Built with curiosity — not promises.
+Apache License 2.0.

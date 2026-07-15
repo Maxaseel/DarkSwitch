@@ -36,7 +36,7 @@ data class HomeUiState(
     val shizukuInstalled: Boolean = false,
     val shizukuGranted: Boolean = false,
     val hasAccessibilityPermission: Boolean = false,
-    val compatMode: CompatMode = CompatMode.HWUI_PROP
+    val compatMode: CompatMode = CompatMode.AUTO
 )
 
 /**
@@ -148,6 +148,16 @@ class HomeViewModel(app: Application) : AndroidViewModel(app) {
         viewModelScope.launch {
             store.setCompatMode(mode)
             refreshStatus()
+        }
+    }
+
+    fun restoreAll() {
+        viewModelScope.launch {
+            val controller = com.alpwarestudio.darkswitch.core.force.ShizukuCompatForceDarkController(getApplication<Application>())
+            controller.restoreAll()
+            store.resetSelections()
+            ServiceStarter.stop(getApplication<Application>())
+            refreshStatus(globalEnabledOverride = false)
         }
     }
 
